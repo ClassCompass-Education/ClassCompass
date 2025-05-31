@@ -10,9 +10,9 @@ body {
     line-height: 1.6;
 }
 
-/* Gradient Background */
+/* Gradient Background - Updated to #000000 and #1f9442 */
 .gradient-bg {
-    background: linear-gradient(#000000, #1f9442;
+    background: linear-gradient(135deg, #000000, #1f9442);
 }
 
 /* Flex Utilities */
