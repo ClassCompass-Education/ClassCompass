@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.section');
 
     // --- Application State ---
-    const SECRET_PASSWORD = 'schoolmap123';
+    const SECRET_PASSWORDS = ['schoolmap123', 'anotherpassword', 'thirdpassword']; // Array of allowed passwords
     let currentUsername = '';
     let highlightedClassroom = null;
     let currentSection = 'maths'; // Default section
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const username = usernameInput.value.trim();
         const password = passwordInput.value;
 
-        if (username !== '' && password === SECRET_PASSWORD) {
+        if (username !== '' && SECRET_PASSWORDS.includes(password)) {
             currentUsername = username;
             displayUsername.textContent = currentUsername;
             showScreen(appScreen, loginScreen);
