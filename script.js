@@ -33,10 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 'm5', name: 'Room E143', x: 15, y: 35, description: 'Maths classroom.' },
             { id: 'm6', name: 'Room E145', x: 15, y: 70, description: 'Maths classroom.' },
         ],
-        english: [
-            { id: 'e1', name: 'Room E-201', x: 40, y: 50, description: 'Literature classroom.' },
-            { id: 'e2', name: 'Library', x: 50, y: 50, description: 'Main library with study areas.' },
-        ],
         xboxes: [
             { id: 'x1', name: 'X-201', x: 25, y: 75, description: 'Classroom in X-Boxes area.' },
             { id: 'x2', name: 'X-202', x: 25, y: 25, description: 'Classroom in X-Boxes area.' },
