@@ -54,16 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.toggle('btn-secondary', btn.dataset.section !== sectionId);
         });
         renderMarkers(sectionId);
-        highlightClassroom(null); // Clear highlight when switching sections
+        highlightClassroom(null); 
     }
-
-    /**
-     * Highlights a specific classroom on the map and shows its details.
-     * @param {Object|null} classroom - The classroom object to highlight, or null to clear.
-     * @param {string} sectionId - The section the classroom belongs to.
-     */
-    function highlightClassroom(classroom, sectionId = currentSection) {
-        // Clear previous highlight
+  function highlightClassroom(classroom, sectionId = currentSection) {
+        
         if (highlightedClassroom) {
             const prevMarker = document.querySelector(`.marker[data-id="${highlightedClassroom.id}"]`);
             if (prevMarker) {
@@ -80,9 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const marker = document.querySelector(`.marker[data-id="${classroom.id}"]`);
             if (marker) {
                 marker.classList.add('highlight');
-                marker.classList.remove('pulse'); // Reset animation
-                void marker.offsetWidth; // Force reflow to retrigger animation
-                marker.classList.add('pulse'); // Trigger the pulse animation
+                marker.classList.remove('pulse'); 
+                void marker.offsetWidth; 
+                marker.classList.add('pulse'); 
                 const label = document.createElement('span');
                 label.className = 'marker-label';
                 label.textContent = classroom.name;
@@ -97,10 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /**
-     * Renders markers for the given section.
-     * @param {string} sectionId
-     */
+   
     function renderMarkers(sectionId) {
         const markerContainer = document.getElementById(`marker-container-${sectionId}`);
         markerContainer.innerHTML = '';
@@ -123,9 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Event Handlers ---
-
-    // Login Form Submission
+ 
     loginForm.addEventListener('submit', (event) => {
         event.preventDefault();
         errorMessage.classList.add('hidden');
@@ -137,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentUsername = username;
             displayUsername.textContent = currentUsername;
             showScreen(appScreen, loginScreen);
-            showSection(currentSection); // Show default section
+            showSection(currentSection); 
         } else if (username === '') {
             errorMessage.textContent = 'Please enter a username.';
             errorMessage.classList.remove('hidden');
@@ -147,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Logout Button Click
     logoutButton.addEventListener('click', () => {
         currentUsername = '';
         usernameInput.value = '';
@@ -158,14 +146,12 @@ document.addEventListener('DOMContentLoaded', () => {
         showScreen(loginScreen, appScreen);
     });
 
-    // Section Button Clicks
     sectionButtons.forEach(button => {
         button.addEventListener('click', () => {
             showSection(button.dataset.section);
         });
     });
 
-    // Search Button Click
     searchButton.addEventListener('click', () => {
         searchErrorMessage.classList.add('hidden');
         const searchTerm = searchInput.value.toLowerCase().trim();
@@ -173,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let found = null;
         let foundSection = null;
 
-        // Search across all sections
         for (const sectionId in classroomLocations) {
             found = classroomLocations[sectionId].find(
                 (classroom) => classroom.name.toLowerCase() === searchTerm
@@ -195,7 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Search Input Enter Key Press
     searchInput.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
             searchButton.click();
