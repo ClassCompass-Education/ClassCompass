@@ -17,13 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const sectionButtons = document.querySelectorAll('.section-btn');
     const sections = document.querySelectorAll('.section');
 
-    // --- Application State ---
     const SECRET_PASSWORDS = ['schoolmap123', 'anotherpassword', 'thirdpassword']; // Array of allowed passwords
     let currentUsername = '';
     let highlightedClassroom = null;
-    let currentSection = 'maths'; // Default section
+    let currentSection = 'maths'; 
 
-    // Classroom locations grouped by section
     const classroomLocations = {
         maths: [
             { id: 'm1', name: 'Room E138', x: 65, y: 15, description: 'Maths classroom.' },
@@ -41,22 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ],
     };
 
-    // --- Functions ---
-
-    /**
-     * Shows a given element and hides others based on the screen flow.
-     * @param {HTMLElement} elementToShow
-     * @param {HTMLElement} elementToHide
-     */
     function showScreen(elementToShow, elementToHide) {
         elementToShow.style.display = 'flex';
         elementToHide.style.display = 'none';
     }
-
-    /**
-     * Shows the selected section and hides others.
-     * @param {string} sectionId
-     */
+ 
     function showSection(sectionId) {
         currentSection = sectionId;
         sections.forEach(section => {
