@@ -1,3 +1,4 @@
+// Main Functional Area
 document.addEventListener('DOMContentLoaded', () => {
     const loginScreen = document.getElementById('login-screen');
     const appScreen = document.getElementById('app-screen');
